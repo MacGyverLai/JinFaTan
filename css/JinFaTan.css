@@ -1,0 +1,210 @@
+#title_area span {
+	font-size: 20;
+}
+
+#last_button input {
+	background-image: url(images/left_arrow.gif);
+}
+
+#last_button input {
+	background-image: url(images/right_arrow.gif);
+}
+
+.middle_label {
+	background-color: #ffd080;
+	text-align: center;
+}
+
+table {
+	border-style: medium;
+}
+
+#member_list tr {
+	text-align:left;
+	width: 7%;
+}
+
+#member_list th {
+	background: #ddffdd;
+}
+
+#member_list tr:nth-child(odd) {
+	background: #dfbfdf;
+}
+
+#member_list tr:nth-child(even) {
+	background: #f0ef8f;
+}
+
+#member_list td {
+	width: 7%;
+}
+
+#tab_list {
+	border-style: medium;
+	border-collapse: collapse;
+	font-size: 90%;
+}
+
+#tab_list div:nth-child(1) {
+	font-weight: bold;
+	font-size: 100%;
+}
+
+#tab_list div span:nth-child(1) {
+	display: inline-block;
+	width: 3%;
+}
+
+#tab_list div span:nth-child(2) {
+	display: inline-block;
+	width: 6%;
+}
+
+#tab_list div span:nth-child(3) {
+	display: inline-block;
+	width: 10%;
+}
+
+#tab_list div span:nth-child(4) {
+	display: inline-block;
+	width: 9%;
+}
+
+#tab_list div span:nth-child(5) {
+	display: inline-block;
+	width: 9%;
+}
+
+#tab_list div span:nth-child(6) {
+	display: inline-block;
+	width: 10%;
+}
+
+#tab_list div span:nth-child(7) {
+	display: inline-block;
+	width: 35%;
+}
+
+.member_change div:nth-child(1) {
+	font-weight: bold;
+}
+
+.householder_change span {
+	font-weight: bold;
+	padding-right: 2%
+}
+
+.houseHolder {
+	margin-right: 2%;
+}
+
+.name {
+	width: 12%;
+	margin-right: 1%;
+}
+
+.order {
+	width: 8%;
+	margin-right: 1%;
+}
+
+.birthYear {
+	width: 5%;
+	margin-right: 1%;
+}
+
+.birthMonth {
+	width: 10%;
+	margin-right: 1%;
+}
+
+.birthDay {
+	width: 5%;
+	margin-right: 1%;
+}
+
+.birth_time {
+	width: 9%;
+	margin-right: 1%;
+}
+
+.light {
+	margin-right: 3%;
+}
+
+.eCard_No_001 {
+	background-image: url('images/eCard_01.JPG');
+	background-repeat: no-repeat;
+	height: 250px;
+	width: 460px;
+}
+
+.eCard_No_001_Name {
+	width: 460px;
+	text-align: center;
+	letter-spacing: 5px;
+	position: relative; 
+	top: 60px;
+	left: 20px;
+}
+
+.eCard_No_001_Company {
+	width: 460px;
+	text-align: center;
+	letter-spacing: 8px;
+	font-weight: bold;
+	position: relative;
+	top: 20px;
+}
+
+.eCard_No_001_cellphone {
+	position: relative;
+	top: 83px;
+	left: 120px;
+}
+
+.eCard_No_001_CompanyPhone1 {
+	position: relative;
+	top: 103px;
+	left: 120px;
+}
+
+.eCard_No_001_eMail {
+	position: relative;
+	top: 124px;
+	left: 120px;
+}
+
+.eCard_No_002 {
+	background-image: url('images/eCard_02.JPG');
+	background-repeat: no-repeat;
+	height: 250px;
+	width: 460px;
+}
+
+.eCard_No_002_Name {
+	letter-spacing: 8px;
+	position: relative;
+	top: 100px;
+	left: 30px;
+}
+
+.eCard_No_002_Company {
+	text-align: center;
+	width: 460px;
+	letter-spacing: 8px;
+	font-weight: bold;
+	position: relative;
+	top: 20px;
+}
+
+.eCard_No_002_cellphone {
+	position: relative;
+}
+
+.eCard_No_002_eMail {
+	position: relative;
+	top: 160px;
+	left: 260;
+}

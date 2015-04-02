@@ -1,0 +1,41 @@
+<%@page language="java" pageEncoding="UTF-8" contentType="text/html; charset=UTF-8" %>
+<%@page isELIgnored="false" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+<script type="text/javascript" src="js/JinFaTan.js"></script>
+
+<c:set var="seqNo" value="1" />
+<div id="tab_list">
+	<div>
+		<span>No.</span>
+		<span>戶長</span>
+		<span>住家電話</span>
+		<span>聯絡電話一</span>
+		<span>聯絡電話二</span>
+		<span>縣/市</span>
+		<span>地址</span>
+	</div>
+	<c:forEach var="family" items="${familys}">
+	<div class="table_row">
+		<span>${seqNo}</span>
+		<span>${family.householder.name}</span>
+		<span>${family.housePhone}</span>
+		<span>${family.phone_1}</span>
+		<span>${family.phone_2}</span>
+		<span>${family.city} ${family.area}</span>
+		<span>${family.address}</span>
+		<span style="display: none;">${family.id}</span>
+	</div>
+	<c:set var="seqNo">${seqNo + 1}</c:set>
+	</c:forEach>
+</div>
+<c:set var="pageCount" value="1"/>
+分頁 &lt;
+<c:if test="${startPage > 1}"><a class="changePage" href="#">1</a>...</c:if>
+<c:forEach var="pageCount" begin="${startPage}" end="${endPage}">
+	<c:if test="${pageCount != startPage}">,</c:if>
+	<c:if test="${pageCount != currentPage}"><a class="changePage" href="#"></c:if>
+	${pageCount}<c:if test="${pageCount != currentPage}"></a></c:if>
+</c:forEach>
+<c:if test="${pageAmount > endPage}">...<a class="changePage" href="#">${pageAmount}</a></c:if>
+ &gt;

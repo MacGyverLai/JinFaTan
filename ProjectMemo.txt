@@ -1,0 +1,82 @@
+HSQL必須在連線設定加上 shutdown=true, 才可回寫DB
+ex. jdbc:hsqldb:file:C:/JinFaTan/JinFaTan;shutdown=true
+
+使用Ajax不能以"/"開頭,直接用ajax_MemberList.do
+
+Spring在server端的@RequestMapping反而要加上"/"
+ex. @RequestMapping("/ajax_MemberList.do")
+
+年份改用民國,要以客戶需求優先考量
+
+jQuery UI的日曆會主動幫你加id並修改class名稱,
+所以異動html後會不work, 必須將class清掉, 再重新註冊event
+
+jQuery UI 有dialog可用, draggable可用來調member順序(DB以後加入)
+
+iReport的UniCNS-UCS2-V字型在全半型混雜時字會重疊,要先把地址的數字轉掉
+iReport的jrxml若無data field,需要將"When No Data"設為"All Sections",否則會顯示空白頁
+
+bug list:
+#add customer 中文欄位部份(或有時??)會有亂碼 (fix) 因為陣列迴圈導致轉碼重複
+add customer成功後,沒有將資料清除
+#修改log路徑
+#除了log sql,還要log parameters
+#生年也要顯示(民國)
+#search的分頁功能
+#縣市用選的
+#生年同時支援輸入甲子年
+#要多備一組碳粉
+#不能減
+#辰打錯
+#顯示時間+時辰
+#五男五女
+#add member row 清空
+#連續刪除有bug
+#甲子從1804算起
+#顯示用id排序
+#加吉月
+縣市分離
+#order加空白
+#日期加吉
+#member tr 靠左
+#order改成3字元
+#加車牌
+#只有一人不印合家
+#列印選補運祭改
+#搜尋click event會重複送出
+#第2頁以後每頁超過20筆
+#將搜尋條件存在session,以便換頁可以保留資料
+#列印字型換標楷體
+#一般報表輸出(單戶,全戶)
+#用成員名查客戶
+#成員排序調換功能
+#增加預約排程功能
+#重複在不同年 GG
+#新增、異動完成通知視窗(use afterSubmit event)
+
+#預約功能增加"時段"欄位(上午、下午、晚上)
+#搜尋過濾，依日期or戶長
+
+#預約畫面多顯示區間人數
+#新增及修改預約多顯示每個人的相衝日期
+加丁口，濾掉沒稱謂的 - 未測試
+#地址轉數字修改
+#新增客戶增加生肖計算工具
+#預約畫面字體調整與排版
+#Customer List 分頁是否能使用 Bootstrap
+正冲只需設定一次，且戶長用紅色
+預約異動後，預約情形要刷新
+使用者帳密改到 table
+增加地區圓餅圖、長條圖；預約年度地區圓餅圖、長條圖 - 
+    Select(客戶資料、預約記錄)，全部顯示(地區分佈、年齡分佈、成員數分佈)，預約記錄可選時間區間，用bootstrap劃分page
+增加去年有來，今年沒來的報表
+
+加入Maven, 改到 Google Engin App
+
+Report point:
+address 282 * 85
+member 262 * 45
+戶主茲因 120 * 100
+入命 120 * 350
+householder 74 * 190
+JiaZi 12 * 50

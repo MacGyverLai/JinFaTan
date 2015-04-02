@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="JinFaTan" default="deploy">
+	
+	<!-- ================================================================ 
+	                                properties                            
+	     ================================================================ -->
+	<property file="env.properties"/>
+	
+	
+	<path id="internalLIB">
+		<pathelement location="." />
+		<pathelement location="${build.dir}/lib/*.jar" />
+	</path>
+	
+	<path id="projectInclude">
+		<pathelement location="${common.lib.dir}/junit.jar" />
+		<pathelement location="D:/FET_SIG/99.JavaWS/SigDispatcher/WEB-INF/lib/log4j-1.2.8.jar" />
+		<pathelement location="WEB-INF/classes" />
+	</path>
+	
+	
+	<!-- - - - - - - - - - - - - - - - - - 
+          target: prepare                      
+         - - - - - - - - - - - - - - - - - -->
+	<target name="prepare">
+		
+	</target>
+
+
+	<!-- ================================= 
+          target: compile              
+         ================================= -->
+	<target name="compile" depends="prepare" description="--> compile to classes">
+		<!-- Non do compile...
+		<javac srcdir="${src.dir}" destdir="${class.dir}" debug="off" >
+			<classpath refid="internalLIB" />
+		</javac>
+		-->
+	</target>
+	
+	<!-- ================================= 
+	          target: test              
+	         ================================= -->
+	<target name="test" if="testing" description="--> test all unit case">
+		<junit printsummary="yes">
+			<formatter type="xml" />
+			<test name="TestUcdmCenter" todir="${report.dir}" />
+			<test name="TestAccountView" todir="${report.dir}" />
+			<classpath refid="internalLIB" />
+			<classpath refid="projectInclude" />
+		</junit>
+	</target>
+	
+	<target name="report" depends="test" if="testing" description="--> report test result to html">
+		<junitreport todir="${report.dir}">
+			<fileset dir="${report.dir}">
+				<include name="TEST-*.xml" />
+			</fileset>
+			<report format="frames" todir="${report.dir}" styledir="${report.dir}/style" />
+		</junitreport>
+	</target>
+	
+	<target name="pre-package_war" depends="compile">
+		<mkdir dir="${temp.dir}/WEB-INF" />
+		<copy todir="${temp.dir}/WEB-INF">
+			<fileset dir="${build.dir}" />
+		</copy>
+		<!--
+		<copy todir="${temp.dir}/pages">
+			<fileset dir="pages" />
+		</copy>
+		 -->
+		<copy todir="${temp.dir}/css">
+			<fileset dir="css" />
+		</copy>
+		<copy todir="${temp.dir}/js">
+			<fileset dir="js" />
+		</copy>
+		<!--
+		<copy todir="${temp.dir}/images">
+			<fileset dir="images" />
+		</copy>
+		<copy todir="${temp.dir}/JQueryTest">
+			<fileset dir="JQueryTest" />
+		</copy>
+		-->
+	</target>
+	
+	<target name="delete_source" depends="pre-package_war" if="exclude_source">
+		<delete dir="${temp.dir}/WEB-INF/src" />
+	</target>
+	
+    <!-- ================================= 
+          target: package_war              
+         ================================= -->
+    <target name="package_war" depends="delete_source" description="--> package to war file">
+        <jar destfile="${war.name}.war" basedir="${temp.dir}">
+        	<fileset file="*.html" />
+        	<fileset file="*.jsp" />
+        </jar>
+    	<delete dir="${temp.dir}" />
+    </target>
+
+
+	<!-- ================================= 
+          target: deploy              
+         ================================= -->
+	<target name="deploy" depends="package_war" description="--> deploy to Tomcat">
+		<delete dir="${deploy.dir}/${war.name}.war" />
+		<delete dir="${deploy.dir}/${war.name}" />
+		
+		<copy todir="${deploy.dir}">
+			<fileset file="${war.name}.war" />
+		</copy>
+	</target>
+
+
+</project>
+

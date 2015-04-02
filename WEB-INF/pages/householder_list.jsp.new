@@ -1,0 +1,24 @@
+<%@page language="java" pageEncoding="UTF-8" contentType="text/html; charset=UTF-8" %>
+<%@page isELIgnored="false" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="display" uri="http://displaytag.sf.net" %>
+
+<script type="text/javascript" src="js/JinFaTan.js"></script>
+
+<c:set var="seqNo" value="1" />
+
+<div id="tab_list">
+
+<display:table id="customer_list" name="customerList" requestURI="ajax_HouseHolderList.do">
+	<display:column title="No.">${seqNo}</display:column>
+	<display:column title="戶長">${customer_list.householder.name}</display:column>
+	<display:column title="住家電話" property="housePhone"></display:column>
+	<display:column title="聯絡電話一" property="phone_1"></display:column>
+	<display:column title="聯絡電話二" property="phone_2"></display:column>
+	<display:column title="縣/市" property="city"></display:column>
+	<display:column title="地址" property="address"></display:column>
+	<display:column style="display: none;">${customer_list.id}</display:column>
+	<c:set var="seqNo">${seqNo + 1}</c:set>
+</display:table>
+ 
+</div>

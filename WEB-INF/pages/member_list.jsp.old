@@ -1,0 +1,38 @@
+<%@page language="java" pageEncoding="UTF-8" contentType="text/html; charset=UTF-8" %>
+<%@ page isELIgnored="false" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+ 
+<div>
+	<span>姓名</span>
+	<span>排行</span>
+	<span>生年</span>
+	<span>生月</span>
+	<span>生日</span>
+	<span>生辰</span>
+	<span>生肖</span>
+	<span>點亮光明燈</span>
+</div>
+<c:forEach var="member" items="${members}">
+<div>
+	<span>${member.name}</span>
+	<span>${member.order}</span>
+	<span>${member.sixtyYear}</span>
+	<span style="display: none;">${member.birthYear}</span>
+	<span>${member.birthMonth}</span>
+	<span>${member.birthDay}</span>
+	<span>${member.birthTime}</span>
+	<span>${member.animal}</span>
+	<c:if test="${member.light}">
+		<span>有</span>
+	</c:if>
+	<c:if test="${not member.light}">
+		<span>無</span>
+	</c:if>
+	<c:if test="${member.taiSui}">
+		<span>*** 太歲當頭 ***</span>
+	</c:if>
+	<span style="display: none;">${member.id}</span>
+</div>
+</c:forEach>
+
+

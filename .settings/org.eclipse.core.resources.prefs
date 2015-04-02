@@ -1,0 +1,15 @@
+eclipse.preferences.version=1
+encoding//WEB-INF/pages/404.jsp=UTF-8
+encoding//WEB-INF/pages/customer_change.jsp=UTF-8
+encoding//WEB-INF/pages/customer_list.jsp=UTF-8
+encoding//WEB-INF/pages/householder_list.jsp=UTF-8
+encoding//WEB-INF/pages/householder_list.jsp.new=UTF-8
+encoding//WEB-INF/pages/login.jsp=UTF-8
+encoding//WEB-INF/pages/main.jsp=UTF-8
+encoding//WEB-INF/pages/member_list.jsp=UTF-8
+encoding//WEB-INF/pages/member_list.jsp.old=UTF-8
+encoding//WEB-INF/src/tw/lai/macgyver/jft/module/IJinFaTanCenter.java=MS950
+encoding//js/CustomerChange.js=UTF-8
+encoding//js/JinFaTan.js=UTF-8
+encoding//junit/HsqlDAOTest.java=UTF-8
+encoding/<project>=UTF-8

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<web-app xmlns="http://java.sun.com/xml/ns/j2ee"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
+ version="2.4">
+ 
+ 	<display-name>Jin Fa Tan</display-name>
+ 	<description>
+ 		My first web application project.
+ 	</description>
+ 
+	<session-config>
+		<session-timeout>500</session-timeout>
+	</session-config>
+
+	<welcome-file-list>
+		<welcome-file>/WEB-INF/pages/login.jsp</welcome-file>
+	</welcome-file-list>
+
+	<error-page>
+		<error-code>404</error-code>
+		<location>/WEB-INF/pages/404.jsp</location>
+	</error-page>
+	
+	<context-param>
+		<param-name>reportPath</param-name>
+		<param-value>C:/JinFaTan/report</param-value>
+	</context-param>
+	<context-param>
+		<param-name>reportName</param-name>
+		<param-value>JinFaTan.jasper</param-value>
+	</context-param>		
+	
+	<servlet>
+		<servlet-name>dispatcherServlet</servlet-name>
+		<servlet-class>
+			org.springframework.web.servlet.DispatcherServlet
+		</servlet-class>
+		<init-param>
+			<param-name>contextConfigLocation</param-name>
+			<param-value>/WEB-INF/mvc-config.xml</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>dispatcherServlet</servlet-name>
+		<url-pattern>*.do</url-pattern>
+	</servlet-mapping>
+	
+	<filter>
+        <filter-name>FilterSecurity</filter-name>
+        <filter-class>tw.lai.macgyver.jft.filter.SecurityFilter</filter-class>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>FilterSecurity</filter-name>
+        <url-pattern>*.do</url-pattern>
+    </filter-mapping>
+    
+</web-app>
